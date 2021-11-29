@@ -30,11 +30,12 @@ namespace ProductManager.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ProductManagerDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProductDatabase")));
             services.AddTransient<IRepository<Product>, ProductRepository>();
             services.AddTransient<IProductService, ProductService>();
 
             services.AddControllers();
+            
+            services.AddDbContext<ProductManagerDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProductDatabase")));
 
             services.AddMvc(options =>
             {
