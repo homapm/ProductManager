@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrductManager.API", "PrductManager.API\PrductManager.API.csproj", "{222BF3B3-BB18-40DD-9874-3AF59EE5D4CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManager.API", "PrductManager.API\ProductManager.API.csproj", "{222BF3B3-BB18-40DD-9874-3AF59EE5D4CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManager.Application", "ProductManager.Application\ProductManager.Application.csproj", "{924A20EB-FE22-400E-BB6B-431B3F9D6C41}"
 EndProject
