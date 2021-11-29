@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductManager.Domain.Models
 {
@@ -30,6 +25,5 @@ namespace ProductManager.Domain.Models
         public int Type { get; set; }
 
         public Category Category { get; set; }
-
     }
 }
