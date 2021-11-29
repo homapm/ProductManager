@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using ProductManager.Application.Services;
+using ProductManager.Application.Contracts;
 using ProductManager.Domain.Contracts;
 using ProductManager.Domain.Models;
 
@@ -11,9 +11,9 @@ namespace ProductManager.API.Controllers
 {
     public class ProductsController : ControllerBase
     {
-        private readonly ProductService _productService;
+        private readonly IProductService _productService;
 
-        public ProductsController(IRepository<Product> product, ProductService productService)
+        public ProductsController(IRepository<Product> product, IProductService productService)
         {
             _productService = productService;
         }
