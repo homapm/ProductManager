@@ -6,10 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using ProductManager.API.Filters;
@@ -39,7 +35,6 @@ namespace ProductManager.API
             services.AddTransient<IProductService, ProductService>();
 
             services.AddControllers();
-
 
             services.AddMvc(options =>
             {

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -10,11 +9,9 @@ using ProductManager.Domain.Models;
 
 namespace ProductManager.API.Controllers
 {
-    
     public class ProductsController : ControllerBase
     {
         private readonly ProductService _productService;
-
 
         public ProductsController(IRepository<Product> product, ProductService productService)
         {
@@ -68,7 +65,5 @@ namespace ProductManager.API.Controllers
             _productService.UpdateProduct(Object);
             return true;
         }
-
-
     }
 }
