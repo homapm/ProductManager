@@ -11,12 +11,12 @@ using ProductManager.Domain.Models;
 namespace ProductManager.API.Controllers
 {
     
-    public class ProductController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         private readonly ProductService _productService;
 
 
-        public ProductController(IRepository<Product> product, ProductService productService)
+        public ProductsController(IRepository<Product> product, ProductService productService)
         {
             _productService = productService;
         }
