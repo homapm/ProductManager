@@ -10,7 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using ProductManager.API.Filters;
 using ProductManager.Application.Contracts;
 using ProductManager.Application.Services;
 using ProductManager.Domain.Contracts;
@@ -37,6 +39,17 @@ namespace ProductManager.API
             services.AddTransient<IProductService, ProductService>();
 
             services.AddControllers();
+
+
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(new ValidationFilter());
+            })
+            .AddFluentValidation(options =>
+            {
+                options.RegisterValidatorsFromAssemblyContaining<Startup>();
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProductManager.API", Version = "v1" });
