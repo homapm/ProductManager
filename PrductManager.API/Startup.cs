@@ -53,6 +53,9 @@ namespace ProductManager.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProductManager.API v1"));
             }
 
+            // Global exception handling
+            app.UseExceptionHandler("/errors");
+
             app.UseRouting();
 
             app.UseAuthorization();
