@@ -10,6 +10,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using ProductManager.Application.Contracts;
+using ProductManager.Application.Services;
+using ProductManager.Domain.Contracts;
+using ProductManager.Domain.Data;
+using ProductManager.Domain.Models;
+using ProductManager.Domain.Repositories;
 
 namespace PrductManager.API
 {
@@ -25,6 +32,9 @@ namespace PrductManager.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ProductManagerDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProductDatabase")));
+            services.AddTransient<IRepository<Product>, ProductRepository>();
+            services.AddTransient<IProductService, ProductService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
