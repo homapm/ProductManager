@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ProductManager.Domain.Contracts
@@ -11,6 +8,7 @@ namespace ProductManager.Domain.Contracts
         public IEnumerable<T> GetAll();
 
         public T GetById(int id);
+
         public Task<T> Create(T @object);
 
         public void Update(T @object);

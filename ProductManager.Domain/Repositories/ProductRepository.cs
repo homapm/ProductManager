@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using ProductManager.Domain.Contracts;
 using ProductManager.Domain.Data;
@@ -45,6 +43,5 @@ namespace ProductManager.Domain.Repositories
             _dbContext.Remove(@object);
             _dbContext.SaveChanges();
         }
-
     }
 }
