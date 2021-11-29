@@ -17,10 +17,12 @@ namespace ProductManager.Domain.Models
         public string Name { get; set; }
 
         [Required]
+        [Column(TypeName = "decimal(18,2)")]
         [Display(Name = "Price")]
         public decimal Price { get; set; }
 
         [Required]
+        
         [Display(Name = "Type")]
         public int Type { get; set; }
 
