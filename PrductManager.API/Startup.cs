@@ -18,7 +18,7 @@ using ProductManager.Domain.Data;
 using ProductManager.Domain.Models;
 using ProductManager.Domain.Repositories;
 
-namespace PrductManager.API
+namespace ProductManager.API
 {
     public class Startup
     {
@@ -39,7 +39,7 @@ namespace PrductManager.API
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PrductManager.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProductManager.API", Version = "v1" });
             });
         }
 
@@ -50,7 +50,7 @@ namespace PrductManager.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PrductManager.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProductManager.API v1"));
             }
 
             app.UseRouting();
