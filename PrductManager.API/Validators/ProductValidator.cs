@@ -21,8 +21,6 @@ namespace ProductManager.API.Validators
                 .WithMessage("Price should be bigger than 0");
             RuleFor(x => x.Type).Must(x => x > 0)
                 .WithMessage("Product Type should be selected.");
-            RuleFor(x => x.Category).Must(x => x != null)
-                .WithMessage("Product Category should be selected.");
         }
     }
 }

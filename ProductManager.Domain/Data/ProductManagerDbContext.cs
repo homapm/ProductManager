@@ -13,11 +13,6 @@ namespace ProductManager.Domain.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-            builder.Entity<Category>()
-                .HasMany(c => c.Products)
-                .WithOne(e => e.Category)
-                .IsRequired();
         }
 
         public DbSet<Product> Products { get; set; }
