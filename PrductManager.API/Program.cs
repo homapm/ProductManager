@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Serilog;
+using Serilog.Formatting.Compact;
 
 namespace ProductManager.API
 {
@@ -14,14 +15,23 @@ namespace ProductManager.API
     {
         public static void Main(string[] args)
         {
+            //Read Configuration from appSettings
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
+
             Log.Logger = new LoggerConfiguration()
-                .Enrich.FromLogContext()
-                .WriteTo.Console()
+                .ReadFrom.Configuration(config)
                 .CreateLogger();
+
+            //Log.Logger = new LoggerConfiguration()
+            //    .Enrich.FromLogContext()
+            //    .WriteTo.Console(new RenderedCompactJsonFormatter())
+            //    .CreateLogger();
 
             try
             {
-                Log.Information("Program started.");
+                Log.Information("Application started.");
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
