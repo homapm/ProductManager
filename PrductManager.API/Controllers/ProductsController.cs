@@ -9,6 +9,8 @@ using ProductManager.Domain.Models;
 
 namespace ProductManager.API.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
@@ -19,7 +21,7 @@ namespace ProductManager.API.Controllers
         }
 
         [HttpGet]
-        public Object GetAll()
+        public async Task<IActionResult> GetAll()
         {
             var data = _productService.GetAllProducts();
             var json = JsonConvert.SerializeObject(data, Formatting.Indented,
@@ -28,11 +30,11 @@ namespace ProductManager.API.Controllers
                     ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 }
             );
-            return json;
+            return Ok();
         }
 
         [HttpGet("{id}")]
-        public Object Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
             var data = _productService.GetAllProducts().FirstOrDefault(p => p.Id == id);
 
@@ -42,28 +44,28 @@ namespace ProductManager.API.Controllers
                     ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 }
             );
-            return json;
+            return Ok();
         }
 
         [HttpPost("Add")]
-        public async Task<Object> Add([FromBody] Product product)
+        public async Task<IActionResult> Add([FromBody] Product product)
         {
             await _productService.AddProduct(product);
-            return true;
+            return Ok();
         }
 
         [HttpDelete("Delete")]
-        public bool DeleteProduct([FromBody] Product product)
+        public IActionResult DeleteProduct([FromBody] Product product)
         {
             _productService.DeleteProduct(product);
-            return true;
+            return Ok();
         }
 
         [HttpPut("Update")]
-        public bool UpdateProduct(Product Object)
+        public IActionResult UpdateProduct(Product Object)
         {
             _productService.UpdateProduct(Object);
-            return true;
+            return Ok();
         }
     }
 }
